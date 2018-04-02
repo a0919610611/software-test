@@ -1,7 +1,8 @@
 #ifndef TRIANGLE
 #define TRIANGLE
 
-enum TriangleType { Equilateral,
+enum TriangleType {
+    Equilateral,
     Scalene,
     Isosceles,
     NotTriangle,
