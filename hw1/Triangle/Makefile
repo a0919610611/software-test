@@ -9,7 +9,7 @@ all: $(TARGET)
 $(TARGET): triangle.cpp triangle.h
 	$(CC) $^ -o $(TARGET) $(CCFLAGS)
 
-triangle_unittest: triangle_unittest.cpp triangle.h
+triangle_unittest: triangle_unittest.cpp triangle.h triangle.cpp
 	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
 
 
