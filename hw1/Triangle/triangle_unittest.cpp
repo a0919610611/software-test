@@ -3,6 +3,7 @@
 
 TEST(Boundary_Value, weak)
 {
+    EXPECT_EQ(Equilateral,GetTriangleType(1,1,1));
 }
 TEST(Boundary_Value, strong)
 {

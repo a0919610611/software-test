@@ -9,11 +9,15 @@ all: $(TARGET)
 $(TARGET): triangle.cpp triangle.h
 	$(CC) $^ -o $(TARGET) $(CCFLAGS)
 
+triangle_unittest: triangle_unittest.cpp triangle.h
+	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
+
 
 .PHONY: clean test
 
-test: triangle_unittest.cpp triangle.h
-	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
+
+test: triangle_unittest
+	./triangle_unittest
 
 
 clean:
