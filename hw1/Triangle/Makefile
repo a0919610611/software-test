@@ -21,5 +21,5 @@ test: triangle_unittest
 
 
 clean:
-	$(RM) -f $(TARGET) $(OBJECT)
+	$(RM) -f $(TARGET) $(TESTTARGET) $(OBJECT)
 
