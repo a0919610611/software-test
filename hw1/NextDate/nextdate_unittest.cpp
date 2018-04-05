@@ -26,15 +26,41 @@ TEST(Boundary_Value, weak_normal)
     EXPECT_EQ(Date(1912, 7, 1), NextDate(Date(1912, 6, 30)));
 }
 
-/*
 TEST(Boundary_Value, weak_robust)
 {
 }
 
 TEST(Boundary_Value, strong_normal)
 {
+    EXPECT_EQ(Date(1812, 1, 2), NextDate(Date(1812, 1, 1)));
+    EXPECT_EQ(Date(1813, 1, 2), NextDate(Date(1813, 1, 1)));
+    EXPECT_EQ(Date(1912, 1, 2), NextDate(Date(1912, 1, 1)));
+    EXPECT_EQ(Date(2011, 1, 2), NextDate(Date(2011, 1, 1)));
+    EXPECT_EQ(Date(2012, 1, 2), NextDate(Date(2012, 1, 1)));
+    EXPECT_EQ(Date(1812, 1, 3), NextDate(Date(1812, 1, 2)));
+    EXPECT_EQ(Date(1813, 1, 3), NextDate(Date(1813, 1, 2)));
+    EXPECT_EQ(Date(1912, 1, 3), NextDate(Date(1912, 1, 2)));
+    EXPECT_EQ(Date(2011, 1, 3), NextDate(Date(2011, 1, 2)));
+    EXPECT_EQ(Date(2012, 1, 3), NextDate(Date(2012, 1, 2)));
+    EXPECT_EQ(Date(1812, 1, 16), NextDate(Date(1812, 1, 15)));
+    EXPECT_EQ(Date(1813, 1, 16), NextDate(Date(1813, 1, 15)));
+    EXPECT_EQ(Date(1912, 1, 16), NextDate(Date(1912, 1, 15)));
+    EXPECT_EQ(Date(2011, 1, 16), NextDate(Date(2011, 1, 15)));
+    EXPECT_EQ(Date(2012, 1, 16), NextDate(Date(2012, 1, 15)));
+    EXPECT_EQ(Date(1812, 1, 31), NextDate(Date(1812, 1, 30)));
+    EXPECT_EQ(Date(1813, 1, 31), NextDate(Date(1813, 1, 30)));
+    EXPECT_EQ(Date(1912, 1, 31), NextDate(Date(1912, 1, 30)));
+    EXPECT_EQ(Date(2011, 1, 31), NextDate(Date(2011, 1, 30)));
+    EXPECT_EQ(Date(2012, 1, 31), NextDate(Date(2012, 1, 30)));
+    EXPECT_EQ(Date(1812, 2, 1), NextDate(Date(1812, 1, 31)));
+    EXPECT_EQ(Date(1813, 2, 1), NextDate(Date(1813, 1, 31)));
+    EXPECT_EQ(Date(1912, 2, 1), NextDate(Date(1912, 1, 31)));
+    EXPECT_EQ(Date(2011, 2, 1), NextDate(Date(2011, 1, 31)));
+    EXPECT_EQ(Date(2012, 2, 1), NextDate(Date(2012, 1, 31)));
+    EXPECT_EQ(Date(2012, 2, 1), NextDate(Date(2012, 1, 31)));
 }
 
+/*
 TEST(Boundary_Value, strong_robust)
 {
 }
