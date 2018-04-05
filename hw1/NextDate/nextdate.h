@@ -2,7 +2,9 @@
 #define NEXTDATE
 
 struct Date {
-    int year, month, day;
+    int year;
+    int month;
+    int day;
     Date(int _year = 0, int _month = 0, int _day = 0)
     {
         year = _year;
@@ -16,5 +18,6 @@ struct Date {
 };
 
 Date NextDate(Date now);
+bool IsLeapYear(int year);
 
 #endif
