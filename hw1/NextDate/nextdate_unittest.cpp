@@ -102,19 +102,38 @@ TEST(Edge_Case, leap_year)
     EXPECT_EQ(Date(2000, 2, 29), NextDate(Date(2000, 2, 28)));
     EXPECT_EQ(Date(2000, 3, 1), NextDate(Date(2000, 2, 29)));
 }
-/*
 TEST(Equivalence_Class, weak_normal)
 {
+
+    EXPECT_EQ(Date(1912, 6, 16), NextDate(Date(1912, 6, 15)));
 }
 
 TEST(Equivalence_Class, weak_robust)
 {
+    EXPECT_EQ(Date(1912, 6, 16), NextDate(Date(1912, 6, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 6, -1)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 13, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 6, -1)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 6, 32)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 6, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 6, 15)));
 }
 
 TEST(Equivalence_Class, strong_robust)
 {
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, -1, -1)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 6, -1)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 13, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 13, -1)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, -1, -1)));
 }
 
+TEST(Equivalence_Class, strong_normal)
+{
+    EXPECT_EQ(Date(1912, 6, 16), NextDate(Date(1912, 6, 15)));
+}
+
+/*
 TEST(Decision_Table, decisions){}
 
 */
