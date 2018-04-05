@@ -6,7 +6,7 @@ TriangleType GetTriangleType(int a, int b, int c)
 {
     // check the range of edge value
 
-    if(a>200 or a<1 or b>200 or b<1 or c>200 or c<1){
+    if (a > 200 or a < 1 or b > 200 or b < 1 or c > 200 or c < 1) {
         return ValueRangeError;
     }
 

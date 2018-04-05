@@ -1,7 +1,8 @@
+#include "nextdate.h"
 #include <bits/stdc++.h>
 using namespace std;
 
-int main()
+Date NextDate(Date now)
 {
-    return 0;
-}
+    return Date(-1,-1,-1);
+};

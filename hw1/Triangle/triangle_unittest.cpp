@@ -94,10 +94,10 @@ TEST(Decision_Table, decisions)
     EXPECT_EQ(NotTriangle, GetTriangleType(1, 4, 2));
     EXPECT_EQ(NotTriangle, GetTriangleType(1, 2, 4));
     EXPECT_EQ(Equilateral, GetTriangleType(5, 5, 5));
-    EXPECT_EQ(Isosceles, GetTriangleType(2,2,3));
-    EXPECT_EQ(Isosceles, GetTriangleType(2,3,2));
-    EXPECT_EQ(Isosceles, GetTriangleType(3,2,2));
-    EXPECT_EQ(Scalene, GetTriangleType(3,4,5));
+    EXPECT_EQ(Isosceles, GetTriangleType(2, 2, 3));
+    EXPECT_EQ(Isosceles, GetTriangleType(2, 3, 2));
+    EXPECT_EQ(Isosceles, GetTriangleType(3, 2, 2));
+    EXPECT_EQ(Scalene, GetTriangleType(3, 4, 5));
 }
 int main(int argc, char** argv)
 {
