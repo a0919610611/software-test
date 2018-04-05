@@ -66,7 +66,6 @@ TEST(Boundary_Value, strong_normal)
     EXPECT_EQ(Date(2012, 2, 1), NextDate(Date(2012, 1, 31)));
 }
 
-
 TEST(Boundary_Value, strong_robust)
 {
     // 2 fault
@@ -91,9 +90,8 @@ TEST(Boundary_Value, strong_robust)
     EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 0, 32)));
     EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 13, 0)));
     EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 13, 32)));
-
 }
-
+/*
 TEST(Edge_Case, leap_year)
 {
 }
@@ -110,9 +108,7 @@ TEST(Equivalence_Class, strong_robust)
 {
 }
 
-TEST(Decision_Table, decisions)
-{
-}
+TEST(Decision_Table, decisions){}
 
 */
 int main(int argc, char** argv)
