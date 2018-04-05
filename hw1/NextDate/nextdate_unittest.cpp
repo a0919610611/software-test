@@ -28,6 +28,12 @@ TEST(Boundary_Value, weak_normal)
 
 TEST(Boundary_Value, weak_robust)
 {
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 6, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 6, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 0, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 13, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 6, 32)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 6, 0)));
 }
 
 TEST(Boundary_Value, strong_normal)
@@ -60,9 +66,32 @@ TEST(Boundary_Value, strong_normal)
     EXPECT_EQ(Date(2012, 2, 1), NextDate(Date(2012, 1, 31)));
 }
 
-/*
+
 TEST(Boundary_Value, strong_robust)
 {
+    // 2 fault
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 0, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 13, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 0, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 13, 15)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 0, 0)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 0, 32)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 13, 0)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1912, 13, 32)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 6, 0)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 6, 32)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 6, 0)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 6, 32)));
+    // 3fault
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 0, 0)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 0, 32)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 13, 0)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1811, 13, 32)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 0, 0)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 0, 32)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 13, 0)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(2013, 13, 32)));
+
 }
 
 TEST(Edge_Case, leap_year)
