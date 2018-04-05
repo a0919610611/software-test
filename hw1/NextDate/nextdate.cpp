@@ -20,12 +20,27 @@ Date NextDate(Date now)
             month++;
             day = 1;
         }
-    }else if(month==4 or month==6 or month==9 or month==11){
-        if(day<30){
+    } else if (month == 4 or month == 6 or month == 9 or month == 11) {
+        if (day < 30) {
+            day++;
+        } else {
+            month++;
+            day = 1;
+        }
+    } else if (month == 12) {
+        if (day < 31) {
+            day++;
+        } else {
+            month = 1;
+            day = 1;
+            year++;
+        }
+    } else if (month == 2) {
+        if(day<28){
             day++;
         }else {
-            month++;
             day=1;
+            month++;
         }
     }
     return now;
