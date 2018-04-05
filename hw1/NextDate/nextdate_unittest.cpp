@@ -93,12 +93,14 @@ TEST(Boundary_Value, strong_robust)
 }
 TEST(Edge_Case, leap_year)
 {
-    EXPECT_EQ(Date(1812,1,2),NextDate(Date(1812,1,1)));
-    EXPECT_EQ(Date(2013,1,1),NextDate(Date(2012,12,31)));
-    EXPECT_EQ(Date(1812,2,29),NextDate(Date(1812,2,28)));
-    EXPECT_EQ(Date(1812,3,1),NextDate(Date(1812,2,29)));
-    EXPECT_EQ(Date(2000,3,1),NextDate(Date(2000,2,28)));
-    EXPECT_EQ(Date(-1,-1,-1),NextDate(Date(2000,2,29)));
+    EXPECT_EQ(Date(1812, 1, 2), NextDate(Date(1812, 1, 1)));
+    EXPECT_EQ(Date(2013, 1, 1), NextDate(Date(2012, 12, 31)));
+    EXPECT_EQ(Date(1812, 2, 29), NextDate(Date(1812, 2, 28)));
+    EXPECT_EQ(Date(1812, 3, 1), NextDate(Date(1812, 2, 29)));
+    EXPECT_EQ(Date(1900, 3, 1), NextDate(Date(1900, 2, 28)));
+    EXPECT_EQ(Date(-1, -1, -1), NextDate(Date(1900, 2, 29)));
+    EXPECT_EQ(Date(2000, 2, 29), NextDate(Date(2000, 2, 28)));
+    EXPECT_EQ(Date(2000, 3, 1), NextDate(Date(2000, 2, 29)));
 }
 /*
 TEST(Equivalence_Class, weak_normal)
