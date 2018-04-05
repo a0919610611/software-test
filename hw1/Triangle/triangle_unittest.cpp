@@ -27,12 +27,33 @@ TEST(Boundary_Value, normal_multiple_fault_selected)
     EXPECT_EQ(NotTriangle, GetTriangleType(1, 1, 100));
     EXPECT_EQ(NotTriangle, GetTriangleType(1, 1, 199));
     EXPECT_EQ(NotTriangle, GetTriangleType(1, 1, 200));
-    EXPECT_EQ(Isosceles,GetTriangleType(1,2,2));
-    EXPECT_EQ(Isosceles,GetTriangleType(1,100,100));
-    EXPECT_EQ(Isosceles,GetTriangleType(1,199,199));
-    EXPECT_EQ(Isosceles,GetTriangleType(1,200,200));
+    EXPECT_EQ(Isosceles, GetTriangleType(1, 2, 2));
+    EXPECT_EQ(Isosceles, GetTriangleType(1, 100, 100));
+    EXPECT_EQ(Isosceles, GetTriangleType(1, 199, 199));
+    EXPECT_EQ(Isosceles, GetTriangleType(1, 200, 200));
 }
 
+TEST(Boundary_Value, robust_single_fault)
+{
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 100, 100));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(201, 100, 100));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(100, 0, 100));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(100, 201, 100));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(100, 100, 0));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(100, 100, 201));
+}
+
+TEST(Boundary_Value, robust_multiple_fault)
+{
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 100));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(201, 201, 100));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 201, 100));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(100, 0, 0));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(100, 201, 201));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(100, 201, 0));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 0));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(201, 201, 201));
+}
 int main(int argc, char** argv)
 {
     testing::InitGoogleTest(&argc, argv);
