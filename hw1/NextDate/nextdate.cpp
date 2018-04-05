@@ -53,20 +53,33 @@ Date NextDate(Date now)
             year++;
         }
     } else if (month == 2) {
-        if (not(1 <= day and day <= 28)) {
-            return Date(-1, -1, -1);
-        }
-        if (day < 28) {
-            day++;
-        } else {
-            day = 1;
-            month++;
+        if (not IsLeapYear(year)) {
+            if (not(1 <= day and day <= 28)) {
+                return Date(-1, -1, -1);
+            }
+            if (day < 28) {
+                day++;
+            } else {
+                day = 1;
+                month++;
+            }
+        }else {
+            if (not(1 <= day and day <= 29)) {
+                return Date(-1, -1, -1);
+            }
+            if (day < 29) {
+                day++;
+            } else {
+                day = 1;
+                month++;
+            }
+
         }
     }
     return now;
 };
 
-bool isLeapYear(int year)
+bool IsLeapYear(int year)
 {
     if ((year % 400 == 0) or (year % 4 == 0 and year % 100 != 0)) {
         return true;
