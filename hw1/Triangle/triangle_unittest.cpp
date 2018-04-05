@@ -1,7 +1,7 @@
 #include "triangle.h"
 #include <gtest/gtest.h>
 
-TEST(Boundary_Value, normal_single_fault)
+TEST(Boundary_Value, normal_weak)
 {
     EXPECT_EQ(Isosceles, GetTriangleType(100, 100, 1));
     EXPECT_EQ(Isosceles, GetTriangleType(100, 100, 2));
@@ -20,7 +20,7 @@ TEST(Boundary_Value, normal_single_fault)
     EXPECT_EQ(NotTriangle, GetTriangleType(200, 100, 100));
 }
 
-TEST(Boundary_Value, normal_multiple_fault_selected)
+TEST(Boundary_Value, normal_strong)
 {
     EXPECT_EQ(Equilateral, GetTriangleType(1, 1, 1));
     EXPECT_EQ(NotTriangle, GetTriangleType(1, 1, 2));
@@ -33,7 +33,7 @@ TEST(Boundary_Value, normal_multiple_fault_selected)
     EXPECT_EQ(Isosceles, GetTriangleType(1, 200, 200));
 }
 
-TEST(Boundary_Value, robust_single_fault)
+TEST(Boundary_Value, robust_weak)
 {
     EXPECT_EQ(ValueRangeError, GetTriangleType(0, 100, 100));
     EXPECT_EQ(ValueRangeError, GetTriangleType(201, 100, 100));
@@ -43,7 +43,7 @@ TEST(Boundary_Value, robust_single_fault)
     EXPECT_EQ(ValueRangeError, GetTriangleType(100, 100, 201));
 }
 
-TEST(Boundary_Value, robust_multiple_fault)
+TEST(Boundary_Value, robust_strong)
 {
     EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 100));
     EXPECT_EQ(ValueRangeError, GetTriangleType(201, 201, 100));
@@ -54,6 +54,9 @@ TEST(Boundary_Value, robust_multiple_fault)
     EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 0));
     EXPECT_EQ(ValueRangeError, GetTriangleType(201, 201, 201));
 }
+
+
+
 int main(int argc, char** argv)
 {
     testing::InitGoogleTest(&argc, argv);
