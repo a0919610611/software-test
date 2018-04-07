@@ -1,4 +1,4 @@
-#include "comission.h"
+#include "commission.h"
 #include <gtest/gtest.h>
 
 /*
