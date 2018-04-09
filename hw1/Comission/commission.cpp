@@ -14,6 +14,10 @@ using namespace std;
  */
 double CalCommission(int lockCount, int stockCount, int barrelCount)
 {
+    // check input range
+    if(not( 1<=lockCount and lockCount<=70 and 1<=stockCount and stockCount<=80 and 1<=barrelCount and barrelCount <=90 )){
+        return -1.0;
+    }
     double lockPrice = 45.0, stockPrice = 30.0, barrelPrice = 25.0;
     double totalSale = 0;
     totalSale += lockPrice * lockCount;
