@@ -68,28 +68,28 @@ TEST(Boundary_Value, strong_robust)
 
 TEST(Equivalence_Class, weak_normal)
 {
-    EXPECT_DOUBLE_EQ(640.0,CalCommission(35,40,45));
+    EXPECT_DOUBLE_EQ(640.0, CalCommission(35, 40, 45));
 }
 
 TEST(Equivalence_Class, weak_robust)
 {
-    EXPECT_DOUBLE_EQ(-1.0,CalCommission(-1,40,45));
-    EXPECT_DOUBLE_EQ(-1.0,CalCommission(71,40,45));
-    EXPECT_DOUBLE_EQ(-1.0,CalCommission(35,-1,45));
-    EXPECT_DOUBLE_EQ(-1.0,CalCommission(35,81,45));
-    EXPECT_DOUBLE_EQ(-1.0,CalCommission(35,40,-1));
-    EXPECT_DOUBLE_EQ(-1.0,CalCommission(35,40,91));
-
+    EXPECT_DOUBLE_EQ(-1.0, CalCommission(-1, 40, 45));
+    EXPECT_DOUBLE_EQ(-1.0, CalCommission(71, 40, 45));
+    EXPECT_DOUBLE_EQ(-1.0, CalCommission(35, -1, 45));
+    EXPECT_DOUBLE_EQ(-1.0, CalCommission(35, 81, 45));
+    EXPECT_DOUBLE_EQ(-1.0, CalCommission(35, 40, -1));
+    EXPECT_DOUBLE_EQ(-1.0, CalCommission(35, 40, 91));
 }
 
 TEST(Equivalence_Class, strong_robust)
 {
-    EXPECT_DOUBLE_EQ(-1.0,CalCommission(-1,-1,45));
-    EXPECT_DOUBLE_EQ(-1.0,CalCommission(-1,40,-1));
-    EXPECT_DOUBLE_EQ(-1.0,CalCommission(35,-1,-1));
-    EXPECT_DOUBLE_EQ(-1.0,CalCommission(-1,-1,-1));
+    EXPECT_DOUBLE_EQ(-1.0, CalCommission(-1, -1, 45));
+    EXPECT_DOUBLE_EQ(-1.0, CalCommission(-1, 40, -1));
+    EXPECT_DOUBLE_EQ(-1.0, CalCommission(35, -1, -1));
+    EXPECT_DOUBLE_EQ(-1.0, CalCommission(-1, -1, -1));
 }
 /*
+ * the problem is not suitable for decision table based testing
 TEST(Decision_Table, decisions)
 {
 }

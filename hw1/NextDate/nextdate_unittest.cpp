@@ -3,7 +3,6 @@
 
 TEST(Boundary_Value, weak_normal)
 {
-
     // year
     EXPECT_EQ(Date(1812, 6, 16), NextDate(Date(1812, 6, 15)));
     EXPECT_EQ(Date(1813, 6, 16), NextDate(Date(1813, 6, 15)));

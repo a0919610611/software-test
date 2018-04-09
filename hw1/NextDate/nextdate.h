@@ -1,5 +1,6 @@
 #ifndef NEXTDATE
 #define NEXTDATE
+#include <iostream>
 
 struct Date {
     int year;
@@ -16,6 +17,7 @@ struct Date {
         return year == b.year and month == b.month and day == b.day;
     }
 };
+void PrintTo(const Date& date, ::std::ostream* os);
 
 Date NextDate(Date now);
 bool IsLeapYear(int year);

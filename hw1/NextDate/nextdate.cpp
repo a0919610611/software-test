@@ -2,6 +2,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void PrintTo(const Date& date,ostream* os)
+{
+    *os << "year :" << date.year << " month: " << date.month
+        << " day: " << date.day << endl;
+}
+
 /*
  *  1812<= year <= 2012
  *  1 <= day <= 31
@@ -63,7 +69,7 @@ Date NextDate(Date now)
                 day = 1;
                 month++;
             }
-        }else {
+        } else {
             if (not(1 <= day and day <= 29)) {
                 return Date(-1, -1, -1);
             }
@@ -73,7 +79,6 @@ Date NextDate(Date now)
                 day = 1;
                 month++;
             }
-
         }
     }
     return now;
