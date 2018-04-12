@@ -20,13 +20,13 @@ $(TARGET): commission.cpp commission.h
 	$(CC) $^ -o $(TARGET) $(CCFLAGS)
 
 gtest-all.o : $(GTEST_SRCS_)
-	$(CXX) $(CPPFLAGS) -I$(GTEST_DIR) $(CXXFLAGS) -c \
+	$(CC) $(CCFLAGS) -I$(GTEST_DIR) -c \
             $(GTEST_DIR)/src/gtest-all.cc
 
 gtest.a : gtest-all.o
 	$(AR) $(ARFLAGS) $@ $^
 
-commission_unittest: commission_unittest.cpp commission.h commission.cpp gest.a
+commission_unittest: commission_unittest.cpp commission.h commission.cpp gtest.a
 	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
 
 
