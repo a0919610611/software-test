@@ -46,12 +46,20 @@ TEST(Boundary_Value, strong_normal)
 TEST(Boundary_Value, strong_robust)
 {
     EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 100));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 200));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 199));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 201));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 0));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 1));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 2));
     EXPECT_EQ(ValueRangeError, GetTriangleType(201, 201, 100));
     EXPECT_EQ(ValueRangeError, GetTriangleType(0, 201, 100));
     EXPECT_EQ(ValueRangeError, GetTriangleType(100, 0, 0));
     EXPECT_EQ(ValueRangeError, GetTriangleType(100, 201, 201));
     EXPECT_EQ(ValueRangeError, GetTriangleType(100, 201, 0));
     EXPECT_EQ(ValueRangeError, GetTriangleType(0, 0, 0));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(0, 1, 0));
+    EXPECT_EQ(ValueRangeError, GetTriangleType(1, 0, 0));
     EXPECT_EQ(ValueRangeError, GetTriangleType(201, 201, 201));
 }
 
