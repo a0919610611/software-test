@@ -30,7 +30,6 @@ nextdate_unittest: nextdate_unittest.cpp nextdate.h nextdate.cpp  gtest.a
 	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS) $(CCFLAGS)
 
 
-.PHONY: clean test
 
 
 test: nextdate_unittest

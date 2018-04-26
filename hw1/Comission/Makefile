@@ -32,7 +32,6 @@ commission_unittest: commission_unittest.cpp commission.h commission.cpp gtest.a
 
 
 
-.PHONY: clean test
 
 
 test: commission_unittest
