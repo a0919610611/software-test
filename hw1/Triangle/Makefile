@@ -6,6 +6,7 @@ TESTFLAGS = -std=c++17  -pthread
 
 GTEST_DIR = ../../googletest/googletest
 CCFLAGS += -isystem $(GTEST_DIR)/include
+TESTFLAGS += -isystem $(GTEST_DIR)/include
 
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 				  $(GTEST_DIR)/include/gtest/internal/*.h
@@ -26,7 +27,7 @@ $(TARGET): triangle.cpp triangle.h main.cpp
 	$(CC) $^ -o $(TARGET) $(CCFLAGS)
 
 triangle_unittest: triangle_unittest.cpp triangle.h triangle.cpp gtest.a
-	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS) $(CCFLAGS)
+	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
 
 
 

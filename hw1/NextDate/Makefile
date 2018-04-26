@@ -7,6 +7,7 @@ TESTFLAGS = -std=c++17 -pthread
 GTEST_DIR = ../../googletest/googletest
 
 CCFLAGS += -isystem $(GTEST_DIR)/include
+TESTFLAGS += -isystem $(GTEST_DIR)/include
 
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 				                $(GTEST_DIR)/include/gtest/internal/*.h
@@ -27,7 +28,7 @@ gtest.a : gtest-all.o
 	        $(AR) $(ARFLAGS) $@ $^
 
 nextdate_unittest: nextdate_unittest.cpp nextdate.h nextdate.cpp  gtest.a
-	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS) $(CCFLAGS)
+	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
 
 
 
