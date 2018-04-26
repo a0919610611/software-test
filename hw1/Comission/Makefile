@@ -27,7 +27,7 @@ gtest.a : gtest-all.o
 	$(AR) $(ARFLAGS) $@ $^
 
 commission_unittest: commission_unittest.cpp commission.h commission.cpp gtest.a
-	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
+	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS) $(CCFLAGS)
 
 
 

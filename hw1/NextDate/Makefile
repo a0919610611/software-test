@@ -27,7 +27,7 @@ gtest.a : gtest-all.o
 	        $(AR) $(ARFLAGS) $@ $^
 
 nextdate_unittest: nextdate_unittest.cpp nextdate.h nextdate.cpp  gtest.a
-	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
+	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS) $(CCFLAGS)
 
 
 .PHONY: clean test

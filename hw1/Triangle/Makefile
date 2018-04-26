@@ -26,7 +26,7 @@ $(TARGET): triangle.cpp triangle.h main.cpp
 	$(CC) $^ -o $(TARGET) $(CCFLAGS)
 
 triangle_unittest: triangle_unittest.cpp triangle.h triangle.cpp gtest.a
-	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
+	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS) $(CCFLAGS)
 
 
 .PHONY: clean test
