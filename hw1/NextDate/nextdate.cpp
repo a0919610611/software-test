@@ -91,7 +91,3 @@ bool IsLeapYear(int year)
     }
     return false;
 };
-int main()
-{
-
-}

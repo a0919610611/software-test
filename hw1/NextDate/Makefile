@@ -16,7 +16,7 @@ OBJECT =  gtest.a gtest_main.a *.o
 
 all: $(TARGET)
 
-$(TARGET): nextdate.cpp nextdate.h
+$(TARGET): nextdate.cpp nextdate.h main.cpp
 	$(CC) $^ -o $(TARGET) $(CCFLAGS)
 
 gtest-all.o : $(GTEST_SRCS_)

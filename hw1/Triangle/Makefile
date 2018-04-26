@@ -22,7 +22,7 @@ gtest-all.o : $(GTEST_SRCS_)
 gtest.a : gtest-all.o
 	        $(AR) $(ARFLAGS) $@ $^
 
-$(TARGET): triangle.cpp triangle.h
+$(TARGET): triangle.cpp triangle.h main.cpp
 	$(CC) $^ -o $(TARGET) $(CCFLAGS)
 
 triangle_unittest: triangle_unittest.cpp triangle.h triangle.cpp gtest.a

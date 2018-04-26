@@ -16,7 +16,7 @@ OBJECT =  gtest.a gtest_main.a *.o
 
 all: $(TARGET)
 
-$(TARGET): commission.cpp commission.h
+$(TARGET): commission.cpp commission.h main.cpp
 	$(CC) $^ -o $(TARGET) $(CCFLAGS)
 
 gtest-all.o : $(GTEST_SRCS_)
