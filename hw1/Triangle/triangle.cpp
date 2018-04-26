@@ -24,3 +24,7 @@ TriangleType GetTriangleType(int a, int b, int c)
     }
     return NotTriangle;
 };
+int main()
+{
+
+}

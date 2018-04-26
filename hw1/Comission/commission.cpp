@@ -38,3 +38,7 @@ double CalCommission(int lockCount, int stockCount, int barrelCount)
     }
     return commission;
 }
+int main()
+{
+
+}
