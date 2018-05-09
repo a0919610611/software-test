@@ -1,14 +1,12 @@
 dist: trusty
 language: cpp
-compiler: gcc
 addons:
     apt:
         sources:
             - ubuntu-toolchain-r-test
         packages:
-            - gcc-6
             - g++-6
 script:
-    - export CCX=g++-6
+    - export CC=g++-6
     - export CCX=g++-6
     - make -C hw2 test
