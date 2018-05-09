@@ -1,6 +1,16 @@
-language:
-    - cpp
-compiler:
-    - gcc
+dist: trusty
+language: cpp
+compiler: gcc
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - gcc-6
+            - g++-6
 script:
-    make -C hw2 test
+    - ln -s /usr/bin/gcc-6 /usr/local/bin/gcc
+    - ln -s /usr/bin/g++-6 /usr/local/bin/g++
+    - export CC=gcc-6
+    - export CCX=g++-6
+    - make -C hw2 test
