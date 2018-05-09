@@ -10,3 +10,7 @@ script:
     - export CC=g++-6
     - export CCX=g++-6
     - make -C hw2 test
+
+
+
+

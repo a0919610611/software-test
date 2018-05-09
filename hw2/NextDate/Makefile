@@ -1,7 +1,8 @@
 TARGET   = nextdate
-TESTTARGET = nextdate_unittest
-CC       ?= g++
+TESTTARGET = nextdate_unittest_hw1 nextdate_unittest
+CCX       ?= g++
 CCFLAGS   = -std=c++17 -Wall -Wextra -pedantic -g3
+GCOVFLAGS = --coverage
 TESTFLAGS = -std=c++17 -pthread
 
 GTEST_DIR = ../../googletest/googletest
@@ -12,13 +13,19 @@ TESTFLAGS += -isystem $(GTEST_DIR)/include
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
 				                $(GTEST_DIR)/include/gtest/internal/*.h
 
-OBJECT =  gtest.a gtest_main.a *.o
+OBJECT =  gtest.a gtest_main.a *.o *.gcov *.gcno *.gcda
 
 
 all: $(TARGET)
 
-$(TARGET): nextdate.cpp nextdate.h main.cpp
-	$(CC) $^ -o $(TARGET) $(CCFLAGS)
+nextdate.o : nextdate.cpp
+		$(CCX) -c $^  -o $@ $(CCFLAGS) $(GCOVFLAGS)
+
+main.o: main.cpp
+		$(CCX) -c $^  -o $@ $(CCFLAGS)
+
+$(TARGET): nextdate.o main.o
+		$(CCX) $^ -o $@ $(CCFLAGS) $(GCOVFLAGS)
 
 gtest-all.o : $(GTEST_SRCS_)
 	        $(CC) $(CCFLAGS) -I$(GTEST_DIR) -c \
@@ -27,16 +34,23 @@ gtest-all.o : $(GTEST_SRCS_)
 gtest.a : gtest-all.o
 	        $(AR) $(ARFLAGS) $@ $^
 
-nextdate_unittest: nextdate_unittest.cpp nextdate.h nextdate.cpp  gtest.a
-	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
+nextdate_unittest_hw1: nextdate_unittest_hw1.cpp nextdate.o  gtest.a
+	$(CCX) $^ -o $@ $(TESTFLAGS) $(GCOVFLAGS)
 
 
 
 
-test: nextdate_unittest
-	./nextdate_unittest
+test_hw1: nextdate_unittest_hw1
+	./nextdate_unittest_hw1
 
+test:
+	make test_hw1
+
+nextdate.cpp.gcov: nextdate.gcno nextdate.gcda
+	gcov nextdate.cpp
+
+show-gcov: nextdate.cpp.gcov
+	cat nextdate.cpp.gcov
 
 clean:
 	$(RM) -f $(TARGET) $(TESTTARGET) $(OBJECT)
-

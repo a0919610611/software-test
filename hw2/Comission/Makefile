@@ -1,7 +1,8 @@
 TARGET   = commission
-TESTTARGET = commission_unittest
-CC       ?= g++
+TESTTARGET = commission_unittest_hw1 commission_unittest
+CCX       ?= g++
 CCFLAGS   = -std=c++17 -Wall -Wextra -pedantic -g3
+GCOVFLAGS = --coverage
 TESTFLAGS = -std=c++17  -pthread
 
 GTEST_DIR = ../../googletest/googletest
@@ -12,33 +13,47 @@ TESTFLAGS += -isystem $(GTEST_DIR)/include
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h \
                 $(GTEST_DIR)/include/gtest/internal/*.h
 
-OBJECT =  gtest.a gtest_main.a *.o
+OBJECT =  gtest.a gtest_main.a *.o *.gcov *.gcno *.gcda
 
 
 all: $(TARGET)
 
-$(TARGET): commission.cpp commission.h main.cpp
-	$(CC) $^ -o $(TARGET) $(CCFLAGS)
+commission.o: commission.cpp
+	$(CCX) -c $^  -o $@ $(CCFLAGS) $(GCOVFLAGS)
+main.o: main.cpp
+	$(CCX) -c $^  -o $@ $(CCFLAGS)
+
+$(TARGET): commission.o main.o
+	$(CCX) $^ -o $@ $(CCFLAGS) $(GCOVFLAGS)
 
 gtest-all.o : $(GTEST_SRCS_)
-	$(CC) $(CCFLAGS) -I$(GTEST_DIR) -c \
+	$(CCX) $(CCFLAGS) -I$(GTEST_DIR) -c \
             $(GTEST_DIR)/src/gtest-all.cc
 
 gtest.a : gtest-all.o
 	$(AR) $(ARFLAGS) $@ $^
 
-commission_unittest: commission_unittest.cpp commission.h commission.cpp gtest.a
-	$(CC) $^ -o $(TESTTARGET) $(TESTFLAGS)
+commission_unittest_hw1: commission_unittest_hw1.cpp commission.o gtest.a
+	$(CCX) $^ -o $@ $(TESTFLAGS) $(GCOVFLAGS)
 
 
 
+test_hw1: commission_unittest_hw1
+	./commission_unittest_hw1
+
+test:
+	make test_hw1
 
 
 
-test: commission_unittest
-	./commission_unittest
+commission.cpp.gcov: commission.gcno commission.gcda
+	gcov commission.cpp
+
+show-gcov: commission.cpp.gcov
+	cat commission.cpp.gcov
+
+
 
 
 clean:
 	$(RM) -f $(TARGET) $(TESTTARGET) $(OBJECT)
-

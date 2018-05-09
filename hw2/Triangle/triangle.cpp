@@ -23,4 +23,4 @@ TriangleType GetTriangleType(int a, int b, int c)
         return Isosceles;
     }
     return NotTriangle;
-};
+}

@@ -82,7 +82,7 @@ Date NextDate(Date now)
         }
     }
     return now;
-};
+}
 
 bool IsLeapYear(int year)
 {
@@ -90,4 +90,4 @@ bool IsLeapYear(int year)
         return true;
     }
     return false;
-};
+}
