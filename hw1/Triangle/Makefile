@@ -1,6 +1,6 @@
 TARGET   = triangle
 TESTTARGET = triangle_unittest
-CC       = g++
+CC       ?= g++
 CCFLAGS   = -std=c++17 -Wall -Wextra -pedantic -g3
 TESTFLAGS = -std=c++17  -pthread
 

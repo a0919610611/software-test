@@ -1,5 +1,4 @@
 dist: trusty
-sudo: required
 language: cpp
 compiler: gcc
 addons:
@@ -10,8 +9,6 @@ addons:
             - gcc-6
             - g++-6
 script:
-    - ln -s /usr/bin/gcc-6 /usr/local/bin/gcc
-    - ln -s /usr/bin/g++-6 /usr/local/bin/g++
     - export CC=gcc-6
     - export CCX=g++-6
     - make -C hw2 test
