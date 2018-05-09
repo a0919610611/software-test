@@ -9,6 +9,6 @@ addons:
             - gcc-6
             - g++-6
 script:
-    - export CC=gcc-6
+    - export CCX=g++-6
     - export CCX=g++-6
     - make -C hw2 test
