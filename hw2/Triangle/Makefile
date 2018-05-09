@@ -2,6 +2,7 @@ TARGET   = triangle
 TESTTARGET = triangle_unittest_hw1 triangle_unittest
 CCX       ?= g++
 CCFLAGS   = -std=c++17 -Wall -Wextra -pedantic -g3
+GCOVFLAGS = --coverage
 TESTFLAGS = -std=c++17  -pthread
 
 GTEST_DIR = ../../googletest/googletest
