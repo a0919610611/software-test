@@ -6,7 +6,7 @@ test:
 	make -C ./Comission test
 	make -C ./Triangle test
 	make -C ./NextDate test
-gcov:
+show-gcov:
 	make -C ./Comission show-gcov
 	make -C ./Tirangle show-gcov
 	make -C ./NextDate show-gcov
