@@ -6,11 +6,15 @@ addons:
             - ubuntu-toolchain-r-test
         packages:
             - g++-6
+install:
+        - pip install codecov
 script:
     - export CC=g++-6
     - export CCX=g++-6
     - make -C hw2 test
-
+    - make -C hw2 show-gcov
+aftercess:
+        - codecov -X gcov
 
 
 
