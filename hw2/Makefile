@@ -8,7 +8,7 @@ test:
 	make -C ./NextDate test
 show-gcov:
 	make -C ./Comission show-gcov
-	make -C ./Tirangle show-gcov
+	make -C ./Triangle show-gcov
 	make -C ./NextDate show-gcov
 clean:
 	make -C ./Comission clean
