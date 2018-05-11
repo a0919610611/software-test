@@ -1,5 +1,5 @@
 TARGET   = triangle
-TESTTARGET = triangle_unittest_hw1 triangle_unittest
+TESTTARGET = triangle_unittest_hw1 triangle_unittest_path
 CCX       ?= g++
 CCFLAGS   = -std=c++17 -Wall -Wextra -pedantic -g3
 GCOVFLAGS = --coverage
@@ -41,14 +41,18 @@ gtest.a : gtest-all.o
 triangle_unittest_hw1: triangle_unittest_hw1.cpp triangle.o gtest.a
 	$(CCX) $^ -o $@ $(TESTFLAGS) $(GCOVFLAGS)
 
-
-
+triangle_unittest_path: triangle_unittest_path.cpp triangle.o gtest.a
+	$(CCX) $^ -o $@ $(TESTFLAGS) $(GCOVFLAGS)
 
 test_hw1: triangle_unittest_hw1
 	./triangle_unittest_hw1
 
+test_path: triangle_unittest_path
+	./triangle_unittest_path
+
 test:
 	make test_hw1
+	make test_path
 
 
 
