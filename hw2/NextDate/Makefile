@@ -1,5 +1,5 @@
 TARGET   = nextdate
-TESTTARGET = nextdate_unittest_hw1 nextdate_unittest
+TESTTARGET = nextdate_unittest_hw1 nextdate_unittest nextdate_unittest_path
 CCX       ?= g++
 CCFLAGS   = -std=c++17 -Wall -Wextra -pedantic -g3
 GCOVFLAGS = --coverage
@@ -37,11 +37,15 @@ gtest.a : gtest-all.o
 nextdate_unittest_hw1: nextdate_unittest_hw1.cpp nextdate.o  gtest.a
 	$(CCX) $^ -o $@ $(TESTFLAGS) $(GCOVFLAGS)
 
-
+nextdate_unittest_path: nextdate_unittest_path.cpp nextdate.o  gtest.a
+	$(CCX) $^ -o $@ $(TESTFLAGS) $(GCOVFLAGS)
 
 
 test_hw1: nextdate_unittest_hw1
 	./nextdate_unittest_hw1
+
+test_path: nextdate_unittest_path
+	./nextdate_unittest_path
 
 test:
 	make test_hw1
