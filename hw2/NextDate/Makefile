@@ -28,7 +28,7 @@ $(TARGET): nextdate.o main.o
 		$(CCX) $^ -o $@ $(CCFLAGS) $(GCOVFLAGS)
 
 gtest-all.o : $(GTEST_SRCS_)
-	        $(CC) $(CCFLAGS) -I$(GTEST_DIR) -c \
+	        $(CCX) $(CCFLAGS) -I$(GTEST_DIR) -c \
 				            $(GTEST_DIR)/src/gtest-all.cc
 
 gtest.a : gtest-all.o
