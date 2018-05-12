@@ -1,6 +1,7 @@
 TARGET   = nextdate
 TESTTARGET = nextdate_unittest_hw1 nextdate_unittest nextdate_unittest_path
 CCX       ?= g++
+CCOV			?= gcov
 CCFLAGS   = -std=c++17 -Wall -Wextra -pedantic -g3
 GCOVFLAGS = --coverage
 TESTFLAGS = -std=c++17 -pthread
@@ -51,7 +52,7 @@ test:
 	make test_hw1
 
 nextdate.cpp.gcov: nextdate.gcno nextdate.gcda
-	gcov nextdate.cpp
+	$(CCOV) nextdate.cpp
 
 show-gcov: nextdate.cpp.gcov
 	cat nextdate.cpp.gcov

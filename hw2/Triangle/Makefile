@@ -1,6 +1,7 @@
 TARGET   = triangle
 TESTTARGET = triangle_unittest_hw1 triangle_unittest_path
 CCX       ?= g++
+CCOV			?= gcov
 CCFLAGS   = -std=c++17 -Wall -Wextra -pedantic -g3
 GCOVFLAGS = --coverage
 TESTFLAGS = -std=c++17  -pthread
@@ -57,7 +58,7 @@ test:
 
 
 triangle.cpp.gcov: triangle.gcno triangle.gcda
-	gcov triangle.cpp
+	$(CCOV) triangle.cpp
 
 show-gcov: triangle.cpp.gcov
 	cat triangle.cpp.gcov

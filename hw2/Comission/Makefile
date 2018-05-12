@@ -1,6 +1,7 @@
 TARGET   = commission
 TESTTARGET = commission_unittest_hw1 commission_unittest
 CCX       ?= g++
+CCOV			?= gcov
 CCFLAGS   = -std=c++17 -Wall -Wextra -pedantic -g3
 GCOVFLAGS = --coverage
 TESTFLAGS = -std=c++17  -pthread
@@ -47,7 +48,7 @@ test:
 
 
 commission.cpp.gcov: commission.gcno commission.gcda
-	gcov commission.cpp
+	$(CCOV) commission.cpp
 
 show-gcov: commission.cpp.gcov
 	cat commission.cpp.gcov
