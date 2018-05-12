@@ -11,6 +11,7 @@ install:
 script:
     - export CC=g++-6
     - export CCX=g++-6
+    - export CCOV=gcov-6
     - make -C hw2 test
     - make -C hw2 show-gcov
 branches:
@@ -18,6 +19,3 @@ branches:
         - master
 after_success:
         - codecov -t "c2fa8c78-88d3-4ae5-b0ae-0085506a5355" -X gcov
-
-
-
