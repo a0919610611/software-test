@@ -1,5 +1,5 @@
 TARGET   = commission
-TESTTARGET = commission_unittest_hw1 commission_unittest
+TESTTARGET = commission_unittest_hw1 commission_unittest commission_unittest_path
 CCX       ?= g++
 CCOV			?= gcov
 CCFLAGS   = -std=c++17 -Wall -Wextra -pedantic -g3
@@ -37,13 +37,18 @@ gtest.a : gtest-all.o
 commission_unittest_hw1: commission_unittest_hw1.cpp commission.o gtest.a
 	$(CCX) $^ -o $@ $(TESTFLAGS) $(GCOVFLAGS)
 
-
+commission_unittest_path: commission_unittest_path.cpp commission.o gtest.a
+	$(CCX) $^ -o $@ $(TESTFLAGS) $(GCOVFLAGS)
 
 test_hw1: commission_unittest_hw1
 	./commission_unittest_hw1
 
+test_path: commission_unittest_path
+	./commission_unittest_path
+
 test:
 	make test_hw1
+	make test_path
 
 
 
