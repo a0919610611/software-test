@@ -58,7 +58,7 @@ test:
 
 
 triangle.cpp.gcov: triangle.gcno triangle.gcda
-	$(CCOV) triangle.cpp
+	$(CCOV) -bf triangle.cpp
 
 show-gcov: triangle.cpp.gcov
 	cat triangle.cpp.gcov

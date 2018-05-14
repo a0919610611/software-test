@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void PrintTo(const Date& date,ostream* os)
+void PrintTo(const Date& date, ostream* os)
 {
     *os << "year :" << date.year << " month: " << date.month
         << " day: " << date.day << endl;
@@ -58,7 +58,8 @@ Date NextDate(Date now)
             day = 1;
             year++;
         }
-    } else if (month == 2) {
+    } else {
+        // only 2 can be possible
         if (not IsLeapYear(year)) {
             if (not(1 <= day and day <= 28)) {
                 return Date(-1, -1, -1);

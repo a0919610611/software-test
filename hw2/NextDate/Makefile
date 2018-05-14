@@ -50,9 +50,10 @@ test_path: nextdate_unittest_path
 
 test:
 	make test_hw1
+	make test_path
 
 nextdate.cpp.gcov: nextdate.gcno nextdate.gcda
-	$(CCOV) nextdate.cpp
+	$(CCOV) -bf nextdate.cpp
 
 show-gcov: nextdate.cpp.gcov
 	cat nextdate.cpp.gcov

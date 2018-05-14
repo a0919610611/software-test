@@ -48,7 +48,7 @@ test:
 
 
 commission.cpp.gcov: commission.gcno commission.gcda
-	$(CCOV) commission.cpp
+	$(CCOV) -bf commission.cpp
 
 show-gcov: commission.cpp.gcov
 	cat commission.cpp.gcov
